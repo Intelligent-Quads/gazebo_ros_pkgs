@@ -316,7 +316,10 @@ void GazeboRosRange::PutRangeData(common::Time &_updateTime)
         range_msg_.range = std::min(range_msg_.range + this->GaussianKernel(0,gaussian_noise_), parent_ray_sensor_->RangeMax());
 
     this->parent_ray_sensor_->SetActive(true);
-
+    if (range_msg_.range >= range_msg_.max_range)
+    {
+        range_msg_.range = std::numeric_limits<double>::quiet_NaN();
+    }
     // send data out via ros message
     if (this->range_connect_count_ > 0 && this->topic_name_ != "")
         this->pub_.publish(this->range_msg_);

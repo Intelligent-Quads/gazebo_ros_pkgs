@@ -153,7 +153,7 @@ catkin_package(
   gazebo_ros_skid_steer_drive
   gazebo_ros_video
   gazebo_ros_planar_move
-  gazebo_ros_range
+  gazebo_ros_range_iq
   gazebo_ros_vacuum_gripper
 
   CATKIN_DEPENDS
@@ -326,8 +326,8 @@ target_link_libraries(gazebo_ros_hand_of_god ${catkin_LIBRARIES} ${Boost_LIBRARI
 add_library(gazebo_ros_ft_sensor src/gazebo_ros_ft_sensor.cpp)
 target_link_libraries(gazebo_ros_ft_sensor ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
-add_library(gazebo_ros_range src/gazebo_ros_range.cpp)
-target_link_libraries(gazebo_ros_range ${catkin_LIBRARIES} ${Boost_LIBRARIES} RayPlugin)
+add_library(gazebo_ros_range_iq src/gazebo_ros_range.cpp)
+target_link_libraries(gazebo_ros_range_iq ${catkin_LIBRARIES} ${Boost_LIBRARIES} RayPlugin)
 
 add_library(gazebo_ros_vacuum_gripper src/gazebo_ros_vacuum_gripper.cpp)
 target_link_libraries(gazebo_ros_vacuum_gripper ${catkin_LIBRARIES} ${Boost_LIBRARIES})
@@ -379,7 +379,7 @@ install(TARGETS
   gazebo_ros_planar_move
   gazebo_ros_vacuum_gripper
   gazebo_ros_gpu_laser
-  gazebo_ros_range
+  gazebo_ros_range_iq
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
